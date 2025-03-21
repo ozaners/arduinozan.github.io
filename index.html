@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Arduino Verileri</title>
+</head>
+<body>
+  <h1>Arduino ve ESP8266 Verileri</h1>
+  <p id="data">Henüz veri yok.</p>
+  <script>
+    // data.json dosyasını oku ve ekranda göster.
+    fetch('data.json')
+      .then(response => response.json())
+      .then(data => {
+         document.getElementById('data').innerHTML =
+           "Sıcaklık: " + data.temperature + "°C, Nem: " + data.humidity + "%";
+      })
+      .catch(err => console.error("Veri okunamadı: ", err));
+  </script>
+</body>
+</html>
